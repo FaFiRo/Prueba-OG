@@ -1,0 +1,483 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   }
+  :root{
+     --fondo-color-tablet: rgb(181, 244, 255);
+     --fondo-color-movil: rgb(243, 242, 199); 
+     --negrita:bold;   
+      }
+    
+ body{   
+        font-family: 'Montserrat', sans-serif;
+        background-color: rgb(225, 242, 253);     
+        margin-bottom: 30px;        
+     }
+ 
+  .contenedor{  
+     display:grid;
+     grid-gap: 20px;     
+     grid-template-rows: repeat(7,auto);
+     grid-template-columns: repeat(2,auto);
+     grid-template-areas: "header          header" 
+                          "cv              cv"              
+                          "principal       caja-lateral-1"
+                          "principal       caja-lateral-2"
+                          "caja-inferior   caja-inferior"
+                          "caja-inferior   caja-inferior"
+                          "footer          footer";   
+    }
+ 
+    .contenedor .header{
+     grid-area: header;
+    }
+    .contenedor .cv{
+     grid-area: cv;
+    }
+    .contenedor .principal{
+     grid-area: principal;
+    }
+    .contenedor .caja-lateral-1{
+     grid-area: caja-lateral-1;
+    }
+    .contenedor .caja-lateral-2{
+     grid-area: caja-lateral-2;
+    }
+    .contenedor .caja-inferior{
+     grid-area: caja-inferior;
+    }
+    .contenedor .footer{
+    grid-area: footer;
+     }
+   
+ 
+  @media(max-width:768px){
+     body{
+         background-color: var(--fondo-color-tablet);
+       }
+     .contenedor{
+      grid-template-areas: "header         header        header"
+                           "cv             cv            cv"                 
+                           "caja-lateral-1 principal     caja-lateral-2"
+                           "caja-lateral-1 principal     caja-lateral-2"
+                           "caja-inferior  caja-inferior caja-inferior"
+                           "caja-inferior  caja-inferior caja-inferior"
+                           "footer         footer        footer"      
+     }
+    }
+ 
+    @media(max-width:576px){
+     body{
+          background-color: var(--fondo-color-movil); 
+     }
+     .contenedor{    
+      grid-template-areas: "header         header"
+                           "cv             cv"                 
+                           "principal      principal"
+                           "caja-lateral-1 caja-lateral-1"
+                           "caja-lateral-2 caja-lateral-2"
+                           "caja-inferior  caja-inferior"
+                           "caja-inferior  caja-inferior"
+                           "footer         footer"
+    }
+    
+  }
+      
+   /** Estilos caja Header - Menu de navegacion*/
+  
+ .navbar{       
+     box-shadow: 0 4px 5px rgb(155, 146, 111);
+     background-color: rgb(248, 244, 234);     
+     padding: 20px 0 20px 10px;
+     margin: 0px 0px; 
+     position:fixed;
+     width: 100%;     
+   }
+ a{
+     text-decoration: none;
+ }
+
+ .abrir-menu,
+ .cerrar-menu{
+    display:none;
+ }
+  
+  .menu{
+     display: flex;     
+     list-style: none;
+     align-items: center; 
+     justify-content: center;     
+   }
+ .item-enlace{
+   font-size: 18px;
+   font-weight: var(--negrita);
+   text-transform: uppercase;   
+   color:rgb(170, 58, 86);
+   padding:8px 12px;
+   margin: 0 20px;       
+ }
+ .item-enlace:hover{
+   background-color:rgb(233, 227, 213);
+   transition: 0.5s;
+ }
+
+ @media(max-width:576px){  
+  .abrir-menu,
+  .cerrar-menu{
+    display: block;    
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+
+ .cerrar-menu{
+ align-self: self-start;
+ margin: 20px 20px;
+}
+  .menu{
+    flex-direction: column;
+    position:fixed;
+    left: 0;
+    top: 0;
+    width: 100%;    
+    align-items: center; 
+    justify-content:flex-start;   
+    background-color:#515c11;  
+    height: 100%;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+}
+  .menu a{
+    color:white;
+    line-height: 140px;    
+}
+ .item-enlace{    
+  font-size: 40px;        
+ }
+ .menu_abierto{
+  opacity: 1;
+  pointer-events: all;
+ }
+ }
+   
+ 
+   /**Estilos caja parrafo C.V.*/
+  .cv{
+       border-radius: 60px;
+       background-color: rgb(83, 142, 182);
+       box-shadow: 3px 3px 5px 3px #23536e;
+       text-align: center; 
+       letter-spacing: 10px;    
+       color:rgb(255, 255, 255);    
+       border: 6px double rgb(76, 58, 155);
+       padding: 20px;
+       margin: 60px 30px 20px 30px;
+   }
+
+  @media(max-width:576px){
+  .cv{    
+    background-color:rgb(75, 170, 187);
+    box-shadow: 3px 3px 5px 3px rgb(212, 246, 252);      
+    color:rgb(255, 255, 255); 
+    border: 6px double rgb(67, 140, 153); 
+    margin: 120px 30px 20px 30px;
+}
+  }
+ 
+   /** Estilos caja Main*/
+  .principal div{
+     text-align: center;
+     margin:0 30px;
+   }
+   
+  .principal h2{ 
+     font-size: 200%;
+     letter-spacing: 4px;  
+     color:rgba(231, 89, 231, 0.849); 
+   }
+ 
+  .principal p{
+     font-size: 150%;
+     color:rgb(146, 10, 10);
+     font-weight: var(--negrita);
+   }
+   
+  .imagen{
+     border-radius: 80px;
+     width: 250px; 
+     height: 250px;
+   }
+   
+   #boton-cv{
+     background-color: rgb(202, 55, 247);
+     color: white;
+     border-radius: 8px;
+     border-color:rgb(215, 172, 255);
+     font-size: 18px;     
+     padding: 0.5em 1em;
+     cursor:pointer;
+ 
+   }
+   #boton-cv:hover{
+     filter: brightness(120%);
+   }
+
+   @media(max-width:576px){
+    .principal div{
+     font-size: 23px;
+   }
+   .imagen{
+    width: 350px;
+    height: 350px;
+  }
+  #boton-cv{
+    background-color: rgb(202, 55, 247);
+    color: white;
+    font-size: 22px;
+    border-color:rgb(215, 172, 255) ;
+    border-radius: 8px;
+    cursor:pointer;
+  }
+}
+   
+   /**cajas-secciones*/  
+  section{
+     border-radius: 15px;
+     background-color: white;
+     box-shadow: 0 4px 5px darkgrey;    
+     padding: 60px;
+     margin: 10px 40px 10px 30px;
+     text-align: center;     
+   }
+   
+  #items{  
+     box-shadow: 4px 4px 8px 4px #96c1c5;
+     background-color: rgb(231, 250, 253);
+     list-style: none;
+     border-radius: 42px;
+     font-size: 15px;
+     padding: 0.5em 1em;     
+   }
+     
+   #subtit{ 
+     font-size: 150%;
+     color: rgb(185, 201, 224);
+     font-weight: var(--negrita);
+     text-align: center;
+   }
+
+   @media(max-width:576px){
+    #items{
+      font-size: 30px; 
+    }
+    #subtit{ 
+      font-size: 200%;     
+   }
+  }
+ 
+ /**Estilos caja Experiencia*/
+   .caja-inferior ul{
+    display:flex;
+    align-items:center; 
+    justify-content: center;   
+   }
+   .ocultar{
+    display: none;
+   }
+   .mostrar{
+    display:block;
+   }
+
+   .boton-leer{
+    background-color:rgb(114, 164, 221);
+    color:white;
+    border-radius: 8px;
+    border-color: rgb(232, 232, 238);
+    font-size: 15px;      
+    padding: 0.5em 1em;  
+    cursor: pointer;  
+   }
+   .boton-leer:hover{
+    filter: brightness(120%);
+   }
+ 
+   #items-2{
+    box-shadow: 4px 4px 8px 4px #96c1c5;
+    background-color: rgb(231, 250, 253);
+    list-style: none;
+    border-radius: 42px;
+    padding:40px;
+    margin:60px 40px;
+  }
+  .años{
+     color:rgb(218, 115, 30);
+     font-weight: var(--negrita);
+     font-size: 25px;
+   }
+   .profesion{
+     font-weight: var(--negrita);
+     font-size: 20px;
+   }
+   @media(max-width:576px){
+    #items-2{
+      font-size: 25px;
+    }
+    .boton-leer{      
+      font-size: 25px;      
+     }
+   }
+ 
+   /**Estilos caja Footer*/
+  .footer{    
+     box-shadow: 0 8px 15px rgb(177, 152, 194);
+     background-color: rgb(146, 110, 167);
+     color:white;
+     font-size: 20px;
+     padding: 10px 20px;
+     margin: 30px 30px; 
+     border-radius: 20px;       
+  }
+  .footer img{
+    height: 25px;
+    padding: 0 15px;
+  }
+  .info-personal{
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  .info-personal p{
+    font-size: 25px;
+    font-weight: 500px;
+    color:aquamarine;
+  }
+  
+ 
+ .contenedor-footer{
+     display: grid;
+     grid-gap: 20px;     
+     padding-bottom: 20px;
+     grid-template-rows: repeat(2,auto);   
+     grid-template-columns: repeat(2,auto);
+     grid-template-areas: "contacto         contacto" 
+                           "info-personal   form";
+   } 
+   .contenedor-footer .contacto{
+    grid-area: contacto;
+   }
+   .contenedor-footer.info-personal{
+    grid-area: info-personal;
+   }
+   .contenedor-footer .form{
+    grid-area: form;
+   }
+   
+   .contacto{
+    padding: 15px;    
+   }
+
+   .contenedor-form{
+    display: grid;
+    grid-gap: 10px; 
+    text-align: left; 
+    grid-template-rows: repeat(3,auto);
+    grid-template-areas: "nombre"
+                         "email"
+                         "mensaje";                          
+    }
+    .contenedor-form .nombre{
+      grid-area: nombre;
+    }
+    .contenedor-form .email{
+      grid-area: email;
+    }
+    .contenedor-form .mensaje{
+      grid-area: mensaje;
+    }
+    .sub-contenedor{
+      display:grid;
+      
+    }
+   .contenedor-form input{
+     border: none;
+     border-radius: 7px;
+     padding: 5px 10px;
+     height: 30px;
+   }
+
+   .contenedor-form textarea{
+    border: none;
+    border-radius: 7px;
+    padding: 5px 10px;
+    height: auto;
+    resize: vertical;
+   }
+   .boton-enviar{
+    background-color: black;
+    border-radius: 7px;
+    border: 2px solid rgb(199, 146, 235);
+    font-size: 20px;
+    padding: 0.5em 1em;
+    font-weight: var(--negrita);
+    color: white;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+   }
+   
+   .boton-enviar:hover{
+    box-shadow: 0 0 14px;
+    color:rgb(216, 186, 236);
+   }
+     
+   @media(max-width:768px){
+    .footer{    
+      box-shadow: 0 8px 15px  rgb(113, 193, 240);
+      background-color: rgb(59, 22, 223);            
+    }
+    .boton-enviar{    
+      border: 2px solid rgb(143, 197, 241);
+    }
+    .boton-enviar:hover{
+     box-shadow: 0 0 14px;
+     color:rgb(151, 197, 209);
+    }
+   }
+   
+   @media(max-width:576px){
+    .contenedor-footer{
+     grid-template-rows: repeat(3,auto);   
+     grid-template-areas: "contacto       contacto"
+                          "info-personal  info-personal" 
+                          "form           form";                      
+    } 
+   .footer{
+     font-size: 30px;  
+     box-shadow: 0 8px 15px rgb(187, 216, 203);
+     background-color: rgb(110, 167, 155);            
+   }
+   .boton-enviar{ 
+    font-size: 30px;
+    padding: 0.5em 1em;
+    border: 2px solid rgb(186, 236, 208);
+   }
+   .boton-enviar:hover{
+    box-shadow: 0 0 14px;
+    color:rgb(87, 167, 122);
+   }
+   }
+   
+   
+ 
+   
+  
+   
+   
+ 
+   
+  
+ 
+   
+    
+   
