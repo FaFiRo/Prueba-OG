@@ -126,8 +126,8 @@
   .abrir-menu,
   .cerrar-menu{
     display: block;    
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
   }
 
@@ -227,10 +227,7 @@
     .principal div{
      font-size: 23px;
    }
-   .imagen{
-    width: 350px;
-    height: 350px;
-  }
+   
   #boton-cv{
     background-color: rgb(202, 55, 247);
     color: white;
